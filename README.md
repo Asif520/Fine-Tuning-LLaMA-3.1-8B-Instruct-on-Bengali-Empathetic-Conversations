@@ -51,7 +51,7 @@ weight_decay                   = 0.01
   - Problem: More training steps and more expermints need more Gpu
   - Solution: first experment with less (100-500 steps), finialize the whole strategy and then train with 900 steps.
 
-- **BLEU & ROUGE = 0.0**
+- **BLEU & ROUGE ~ 0.0**
   - Problem: Typical for open-ended empathetic responses (creative rephrasing)
   - Solution: Relied on perplexity drop + human evaluation (empathy score 1–5 on 10 samples)
 
