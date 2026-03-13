@@ -1,5 +1,5 @@
 # Fine-Tuning Llama 3.1-8B-Instruct on Bengali Empathetic Conversations  
-[**Video Explanation**] (https://drive.google.com/file/d/1J27-9o886jk4uP1abJ3OmlxFtcAH3l5z/view?usp=sharing)
+[Video Explanation] (https://drive.google.com/file/d/1J27-9o886jk4uP1abJ3OmlxFtcAH3l5z/view?usp=sharing)
 
 **Documentation & Technical Report**
 
