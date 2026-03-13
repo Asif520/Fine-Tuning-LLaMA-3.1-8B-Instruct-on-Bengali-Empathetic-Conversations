@@ -25,12 +25,12 @@
 Unsloth was selected because it provides the best VRAM/speed trade-off on Kaggle T4 hardware. Standard LoRA was kept as fallback strategy (via Strategy pattern) but not used in final run due to ~30–40% slower training.
 
 **Final configuration (Unsloth):**
-- LoRA rank (`r`): 16 (tried 8 & 32 — 16 gave best loss/memory balance)
+- LoRA rank (`r`): 16 
 - `lora_alpha`: 16
-- Target modules: q_proj, k_proj, v_proj, o_proj (attention only — adding MLPs caused OOM)
+- Target modules: q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj 
 - `use_gradient_checkpointing`: "unsloth" (saves ~30% VRAM)
 - Quantization: 4-bit load + float16 compute (T4 does not support bfloat16 efficiently)
-- Sequence length: 2048 during training (8192 at inference) — explained below
+- Sequence length: 8192 (Full sequence)
 
 ## 3. Training Strategy & Hyperparameters
 
@@ -40,12 +40,16 @@ Unsloth was selected because it provides the best VRAM/speed trade-off on Kaggle
 - **Key hyperparameters** (final used):
 
 ```text
-per_device_train_batch_size    = 1
+per_device_train_batch_size    = 2
 gradient_accumulation_steps    = 8     → effective batch = 8
 learning_rate                  = 5e-5  (reduced from 2e-4 to stabilize)
-lr_scheduler_type              = "cosine"
-warmup_ratio                   = 0.03
-num_train_epochs               = 2     (or max_steps ~800–1200)
-packing                        = True  (efficient for short dialogues)
+lr_scheduler_type              = "linear"
+Max steps                      = 900
 optim                          = "adamw_8bit"
-weight_decay                   = 0.05
+weight_decay                   = 0.01
+```
+## 4. Challenges Faced & Solutions
+
+- **Limited GPU Access**
+  - Problem: More training steps and more expermints need more Gpu
+  - Solution: first experment with less (100-500 steps), finialize the whole strategy and then train with 900 steps.
