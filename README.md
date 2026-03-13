@@ -1,10 +1,6 @@
-# Fine-Tuning-LLaMA-3.1-8B-Instruct-on-Bengali-Empathetic-Conversations
-
 # Fine-Tuning Llama 3.1-8B-Instruct on Bengali Empathetic Conversations  
+[**Video Explanation**] ()
 **Documentation & Technical Report**
-
-**Submitted by:** Md. Asif  
-**Date:** March 2026  
 
 ## 1. Project Overview & Objective
 - Goal: Adapt Llama 3.1-8B-Instruct to generate empathetic Bengali responses using the "Bengali Empathetic Conversations Corpus" dataset (~38k pairs).
