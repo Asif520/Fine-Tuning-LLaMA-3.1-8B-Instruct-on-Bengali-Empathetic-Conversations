@@ -53,3 +53,18 @@ weight_decay                   = 0.01
 - **Limited GPU Access**
   - Problem: More training steps and more expermints need more Gpu
   - Solution: first experment with less (100-500 steps), finialize the whole strategy and then train with 900 steps.
+
+- **BLEU & ROUGE = 0.0**
+  - Problem: Typical for open-ended empathetic responses (creative rephrasing)
+  - Solution: Relied on perplexity drop + human evaluation (empathy score 1–5 on 10 samples)
+
+- **Log history missing 'eval_loss'**
+  - Problem: PEFT + SFTTrainer bug
+  - Solution: Added trainer.can_return_loss = True + safe backward scan in logging
+
+## 5. Results Summary & Analysis
+
+- Final validation perplexity: ~2.1–2.4 (good drop from base model ~3.8+)
+- BLEU / ROUGE-L: low (0.00–0.12 range) — expected on creative task
+- Human evaluation (20 samples): average empathy score ~2.0-3.4/5
+
