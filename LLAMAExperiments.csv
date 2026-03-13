@@ -1,0 +1,2 @@
+Unnamed: 0,id,model_name,lora_config,train_loss,val_loss,metrics,timestamp
+0,20260313_062517,meta-llama/Meta-Llama-3.1-8B-Instruct,"r=16, alpha=32, targets=attention",0.6102,0.6158,"{""perplexity"": 2.3046, ""bleu"": 0.0056, ""rougeL"": 0.0, ""human_empathy_score"": 2.4}",2026-03-13 13:44:56
