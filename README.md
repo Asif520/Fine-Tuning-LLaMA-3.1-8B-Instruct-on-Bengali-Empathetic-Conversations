@@ -61,7 +61,14 @@ weight_decay                   = 0.01
 
 ## 5. Results Summary & Analysis
 
-- Final validation perplexity: ~2.1–2.4 (good drop from base model ~3.8+)
-- BLEU / ROUGE-L: low (0.00–0.12 range) — expected on creative task
-- Human evaluation (20 samples): average empathy score ~2.0-3.4/5
+|       Metric             |            Value                          |
+|------------------------- |-------------------------------------------|
+| Perplexity               |           2.304636                        |
+| BLEU                     |           0.005631                        |
+| ROUGE-L                  |           0.000000                        |
+| Human Empathy Score (1-5)|           2.400000                        |
+
+- Final validation perplexity: 2.304 (good drop from base model ~3.8+)
+- BLEU / ROUGE-L: 0.0056 / 0.00 — expected on creative task
+- Human evaluation (10 samples): average empathy score ~2.40/5
 
